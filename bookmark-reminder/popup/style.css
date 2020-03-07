@@ -1,0 +1,71 @@
+
+body {
+	box-sizing: border-box;
+	width: 260px;
+	line-height: 1.25em;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+.title {
+	margin-top: 25px;
+}
+.title-em {
+	font-size: 80%;
+	vertical-align: text-top;
+	padding-left: 12px;
+}
+
+.settings img {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	float: right;
+}
+.sub-title {
+	border: 2px solid blue;
+	padding: 0.15rem;
+}
+.digi {
+	color: rgb(0, 0, 0);
+	font: bold 24px MS Sans Serif;
+}
+.label-txt {
+	font-weight: bold;
+	color: #e20000;
+	font-style: italic;
+	text-anchor: start;
+	text-decoration: underline;
+	text-decoration-color: #e20000;
+	text-decoration-style: wavy;
+	-webkit-text-underline-position: under;
+	-ms-text-underline-position: below;
+	text-underline-position: under;
+	padding-bottom: 10px;
+}
+
+.question {
+	font-size: initial;
+	line-height: .75rem;
+	padding: 0;
+}
+
+.time-options {
+	border: 1px solid black;
+}
+.time-options a {
+	display: inline-flex;
+	font-weight: normal;
+	color: blue;
+	display: inline-block;
+}
+
+.time-options span {
+	cursor: default;
+	pointer-events: none;
+}
+
+.time-options a:hover,
+.time-options a:visited {
+	color: coral;
+}

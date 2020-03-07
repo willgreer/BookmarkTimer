@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<title>Bookmark Reminder</title>
+	</head>
+	<body>
+		<h1 class="title">
+			Bookmark
+			<br />
+			Reminder!<span class="title-em">⏱</span>
+		</h1>
+
+		<div class="sub-title">
+			<div class="label-txt">currently:</div>
+			<div id="clock" class="digi"></div>
+		</div>
+
+		<h1 class="question">When would you like to come back to this page?</h1>
+
+		<div class="time-options">
+			<a href="#" id="hour">1 Hour</a> <span>⏰</span> <br />
+			<a href="#" id="later">Later Today</a> <span>🌞</span> <br />
+			<a href="#" id="evening">This Evening</a> <span>🌜</span><br />
+			<a href="#" id="random-tmrw">Sometime Tomorrow</a> <span>😴</span> <br />
+		</div>
+
+		<div id="bookmarks">
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>
