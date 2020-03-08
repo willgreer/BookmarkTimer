@@ -14,7 +14,8 @@ var contexts = ["page",
 	"editable",
 	"image",
 	"video",
-	"audio"
+	"audio",
+	"tab", 
 ];
 	
 for (var i = 0; i < contexts.length; i++) {
@@ -38,12 +39,3 @@ var child3 = chrome.contextMenus.create(
 	{ "title": "Remind Me in 6 hours", "parentId": parent, "onclick": genericOnClick });
 var child4 = chrome.contextMenus.create(
 	{ "title": "Remind Me Tomorrow", "parentId": parent, "onclick": genericOnClick });
-
-
-
-// Intentionally create an invalid item, to show off error checking in the
-// create callback.
-chrome.contextMenus.create({ "title": "Oops", "parentId": 999 }, function () {
-	if (chrome.extension.lastError) {
-	}
-});
