@@ -1,31 +1,46 @@
 "use strict";
 
-// ** TO DO
-// ** 1 when rclick on bookmark, ask if reminder needed
-// ** 2 when bookmark made, prompt timer question
-// ** 3 create list of bookmarks to come back to
-// ** when icon clicked, able to set date and time
-// **  once created, make a bookmark
-// **  after that, prompt alert, at time 
-function addHours() {
-  var timerList = document.getElementById('time');
-  console.log(timerList);
-  var userInput = document.getElementById('time-value');
+var toClose = false;
 
-  for (var i = 0; i < timerList.length; i++) {
-    timerList[i];
+function toggle(e) {
+  e.stopPropagation();
+  var btn = this;
+  var menu = btn.nextSibling;
+
+  while (menu && menu.nodeType != 1) {
+    menu = menu.nextSibling;
+  }
+
+  if (!menu) return;
+
+  if (menu.style.display !== 'block') {
+    menu.style.display = 'block';
+    if (toClose) toClose.style.display = "none";
+    toClose = menu;
+  } else {
+    menu.style.display = 'none';
+    toClose = false;
   }
 }
 
-var timerList = document.querySelector(".time-options");
-timerList.addEventListener('click', createAlarm, true);
+;
 
-function createAlarm(e) {
-  if (e.target !== e.currentTarget) {
-    var alarmBtn = e.target.id;
-    alert('timer set for ' + alarmBtn);
-  }
+function closeAll() {
+  toClose.style.display = 'none';
 }
+
+;
+window.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".btn-buy-list").forEach(function (btn) {
+    btn.addEventListener("click", toggle, true);
+  });
+});
+
+window.onclick = function (event) {
+  if (toClose) {
+    closeAll.call(event.target);
+  }
+};
 
 function currentTime() {
   var date = new Date();
@@ -38,7 +53,7 @@ function currentTime() {
   hour = updateTime(hour);
   min = updateTime(min);
   sec = updateTime(sec);
-  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec;
+  document.getElementById("clock").textContent = "".concat(hour, " : ").concat(min, " : ").concat(sec);
   var t = setTimeout(function () {
     currentTime();
   }, 1000);

@@ -1,40 +1,40 @@
 
-// ** TO DO
-// ** 1 when rclick on bookmark, ask if reminder needed
-// ** 2 when bookmark made, prompt timer question
-// ** 3 create list of bookmarks to come back to
+var toClose = false
 
+function toggle(e) {
+	e.stopPropagation();
+	var btn = this;
+	var menu = btn.nextSibling;
 
-// ** when icon clicked, able to set date and time
-// **  once created, make a bookmark
-// **  after that, prompt alert, at time 
-
-
-
-
-function addHours() {
-	const timerList = document.getElementById('time');
-	console.log(timerList);
-	
-	let userInput = document.getElementById('time-value');
-	for (var i = 0; i < timerList.length; i++) {
-		timerList[i]
+	while (menu && menu.nodeType != 1) {
+		menu = menu.nextSibling
 	}
-	
-}
-
-
-
-const timerList = document.querySelector(".time-options");
-timerList.addEventListener('click', createAlarm, true);
-
-function createAlarm(e) {
-
-	if (e.target !== e.currentTarget) {
-		let alarmBtn = e.target.id;
-		alert('timer set for ' + alarmBtn)
+	if (!menu) return;
+	if (menu.style.display !== 'block') {
+		menu.style.display = 'block';
+		if (toClose) toClose.style.display = "none";
+		toClose = menu;
+	} else {
+		menu.style.display = 'none';
+		toClose = false;
 	}
-}
+
+};
+function closeAll() {
+	toClose.style.display = 'none';
+};
+
+window.addEventListener("DOMContentLoaded", function () {
+	document.querySelectorAll(".btn-buy-list").forEach(function (btn) {
+		btn.addEventListener("click", toggle, true);
+	});
+});
+
+window.onclick = function (event) {
+	if (toClose) {
+		closeAll.call(event.target);
+	}
+};
 
 function currentTime() {
 	let date = new Date();
@@ -49,8 +49,8 @@ function currentTime() {
 	hour = updateTime(hour);
 	min = updateTime(min);
 	sec = updateTime(sec);
-	document.getElementById("clock").innerText =
-		hour + " : " + min + " : " + sec;
+	document.getElementById("clock").textContent =
+		`${hour} : ${min} : ${sec}`;
 	var t = setTimeout(function () { currentTime() }, 1000);
 
 

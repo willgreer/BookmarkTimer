@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		
+
 		<title>Bookmark Reminder</title>
 	</head>
 	<body>
@@ -29,14 +29,24 @@
 			<a href="#" id="random-tmrw">Sometime Tomorrow</a> <span>😴</span> <br />
 		</div>
 
-		<div id="bookmarks">
+		<div id="bookmarks"></div>
+
+		<div class="product-price-box">
+			<div class="buy">
+				<button class="btn-buy">Custom</button>
+				<!-- Button for opening dropdown -->
+				<button class="btn-buy-list" id="dropBtn1">
+					<span class="btn-arrow"></span>
+				</button>
+				<!-- Dropdown menu itself - hidden by default -->
+				<ul class="dropdown-menu">
+					<a href="#"><li>1 hours</li></a>
+					<a href="#"><li>2 hours</li></a>
+					<a href="#"><li>3 hours</li></a>
+					<a href="#"><li>Add to favorites</li></a>
+				</ul>
+			</div>
 		</div>
-
-		<label for="time">custom:</label>
-			<select name="time" id="time">
-				<option value="0" id="time-value">1 hour</option>
-			</select>
-
 		<script src="app.js"></script>
 	</body>
 </html>
