@@ -10,6 +10,21 @@
 // **  after that, prompt alert, at time 
 
 
+
+
+function addHours() {
+	const timerList = document.getElementById('time');
+	console.log(timerList);
+	
+	let userInput = document.getElementById('time-value');
+	for (var i = 0; i < timerList.length; i++) {
+		timerList[i]
+	}
+	
+}
+
+
+
 const timerList = document.querySelector(".time-options");
 timerList.addEventListener('click', createAlarm, true);
 
@@ -52,3 +67,4 @@ function updateTime(k) { /* appending 0 before time elements if less than 10 */
 	}
 }
 currentTime();
+
