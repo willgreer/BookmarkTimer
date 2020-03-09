@@ -49,7 +49,7 @@ function currentTime() {
 	hour = updateTime(hour);
 	min = updateTime(min);
 	sec = updateTime(sec);
-	document.getElementById("clock").textContent =
+	document.ById("clock").textContent =
 		`${hour} : ${min} : ${sec}`;
 	var t = setTimeout(function () { currentTime() }, 1000);
 

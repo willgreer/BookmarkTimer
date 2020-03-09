@@ -1,31 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
 
-	<div id="dd1"></div>
-	<script>
-
-		function Dropdown(o)
-		{
-			return this.options = o;
-
-			this.init = function() {
-				this.elem = document.getElementById(this.id);
-
-				var 
+		<style>
+			body {
+				background: #ccc;
 			}
-		}	
-		// lajshdf
-		var dd1 = new Dropdown({
-			id: 'dd1'
-		});
 
+			.dropdown {
+				background: white;
+				width: 200px;
+				height: 30px;
+				box-shadow: 6px 6px;
 
-	</script>
-</body>
+				line-height: 30px;
+				user-select: none;
+				display: inline-block;
+				font-size: 1.2em;
+				font-family: monospace;
+				position: relative;
+			}
+
+			.dropdown_value {
+				display: inline-block;
+				padding-left: 5px;
+			}
+
+			.dropdown_arrow {
+				position: absolute;
+				right: 5px;
+				top: 0px;
+			}
+
+			.dropdown_panel {
+				position: absolute;
+				background: transparent;
+				width: calc(100% + 10px);
+				z-index: 100;
+				height: 200px;
+				left: -1px;
+				top: 28px;
+				overflow: hidden;
+				pointer-events: none;
+			}
+
+			.dropdown_items {
+				position: absolute;
+				pointer-events: all;
+				top: 0px;
+				width: calc(100% - 11px);
+				max-height: 170px;
+				background-color: white;
+				box-shadow: 2px 2px 2px #999;
+				overflow-y: auto;
+				border: 1px solid #aaa;
+				transform: translate(0px, -200px);
+				transition: 0.3s all ease-out;
+			}
+
+			.dropdown_item {
+				padding: 1px;
+				font-size: 20px;
+			}
+
+			.dropdown_item:hover {
+				background: #eee;
+			}
+
+			.dropdown ::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			.dropdown ::-webkit-scrollbar-thumb {
+				background: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="dd1"></div>
+
+		<div id="dd2"></div>
+
+		<script src="script.js"></script>
+	</body>
 </html>
