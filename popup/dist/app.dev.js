@@ -1,5 +1,53 @@
 "use strict";
 
+// ! TODO:
+// log current time and pass thru alrm + dropdown
+// create function for countdown based on which link clicked
+var parentNode = document.querySelector('.time-options');
+parentNode.addEventListener("click", logLinkId, false);
+
+function logLinkId(e) {
+  if (e.target !== e.target.id) {
+    var clickedHour = e.target.id;
+    alert('timer set!');
+  }
+
+  e.stopPropagation();
+}
+
+function currentTime() {
+  var date = new Date();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  var midday = "AM";
+  midday = hour >= 12 ? "PM" : "AM";
+  hour = hour == 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("clock").textContent = "".concat(hour, " : ").concat(min, " : ").concat(sec);
+  var t = setTimeout(function () {
+    currentTime();
+  }, 1000);
+  document.getElementById("clock").innerText = "".concat(hour, " : ").concat(min, " : ").concat(sec, " ").concat(midday);
+  /* adding time to the div */
+
+  var t = setTimeout(currentTime, 1000);
+  /* setting timer */
+}
+
+function updateTime(k) {
+  /* appending 0 before time elements if less than 10 */
+  if (k < 10) {
+    return "0" + k;
+  } else {
+    return k;
+  }
+}
+
+currentTime();
+
 function Dropdown(o) {
   this.options = o;
 
@@ -39,6 +87,7 @@ function Dropdown(o) {
     this.elem.addEventListener('mousedown', function () {
       event.stopPropagation();
       if (self.isVisible) self.hide();else self.show();
+      self;
     });
   };
 
@@ -47,6 +96,7 @@ function Dropdown(o) {
     this.hide();
     var newval = elem.innerHTML;
     this.value.innerHTML = newval;
+    console.log(newval);
   };
 
   this.show = function () {
@@ -62,6 +112,7 @@ function Dropdown(o) {
 
   this.hide = function () {
     if (!this.isVisible) return;
+    "";
     this.isVisible = false;
     this.items.style.transform = 'translate(0px, -255px)';
     this.arrow.style.transform = 'rotate(0deg)';
@@ -80,6 +131,4 @@ var dd1 = new Dropdown({
   cb: function cb(newval) {
     alert(newval);
   }
-}); // [ Array.from(new Array(24), (n, index) => index + 1).map(String) ] 
-// console.log(dd1);
-// const hours = new Array(24).fill(0).map((_, i) => `${i + 1} hour${i > 0 ? 's' : ''}`);
+});
