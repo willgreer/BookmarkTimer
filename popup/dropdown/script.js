@@ -21,7 +21,6 @@ function Dropdown(o) {
 		// elements
 		this.elem.innerHTML = html;
 		var elem = this.elem;
-
 		// width of hidden parent block to inline block to align
 		this.elem.style.display = 'inline-block';
 
@@ -69,10 +68,10 @@ function Dropdown(o) {
 		var newval = elem.innerHTML;
 		this.value.innerHTML = newval;
 
-		if (this.options.cb)
-			this.options.cb(newval);
+		
 	};
 
+	
 
 	this.show = function () {
 
@@ -103,67 +102,7 @@ var dd1 = new Dropdown(
 	{
 		id: 'dd1',
 		val: 'custom:',
-		data: [
-			'1 hour',
-			'2 hours',
-			'3 hours',
-			'4 hours',
-			'5 hours',
-			'6 hours',
-			'7 hours',
-			'8 hours',
-			'9 hours',
-			'10 hours',
-			'11 hours',
-			'12 hours',
-			'13 hours',
-			'14 hours',
-			'15 hours',
-			'16 hours',
-			'17 hours',
-			'18 hours',
-			'19 hours',
-			'20 hours',
-			'21 hours',
-			'22 hours',
-			'23 hours',
-			'24 hours',
-		],
-		cb: function (newval) {
-			alert(newval);
-		}
-	});
-
-var dd2 = new Dropdown(
-	{
-		id: 'dd2',
-		val: 'custom 2:',
-		data: [
-			'1 hour',
-			'2 hours',
-			'3 hours',
-			'4 hours',
-			'5 hours',
-			'6 hours',
-			'7 hours',
-			'8 hours',
-			'9 hours',
-			'10 hours',
-			'11 hours',
-			'12 hours',
-			'13 hours',
-			'14 hours',
-			'15 hours',
-			'16 hours',
-			'17 hours',
-			'18 hours',
-			'19 hours',
-			'20 hours',
-			'21 hours',
-			'22 hours',
-			'23 hours',
-			'24 hours',
-		],
+		data: new Array(24).fill(0).map((_, i) => `${i + 1} hour${i > 0 ? 's' : ''}`),
 		cb: function (newval) {
 			alert(newval);
 		}
@@ -171,3 +110,4 @@ var dd2 = new Dropdown(
 
 // [ Array.from(new Array(24), (n, index) => index + 1).map(String) ] 
 // console.log(dd1);
+// const hours = new Array(24).fill(0).map((_, i) => `${i + 1} hour${i > 0 ? 's' : ''}`);
